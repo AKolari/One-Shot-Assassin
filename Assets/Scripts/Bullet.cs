@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-     public float speed = 200.0f;
+     public float speed = 1500.0f;
      public Rigidbody2D _rigidbody;
      public float start_x = 0;
      public float start_y = 1;
@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
      // Start is called before the first frame update
      void Start()
      {
-          AddStartingForce();
+         // AddStartingForce();
      }
 
      private void AddStartingForce()
@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
 
 
           //Puts starting x and y in a vector called direction
-          Vector2 direction = new Vector2(start_x, start_y);
+          Vector2 direction = new Vector2(-start_x, -start_y);
 
           //Applies direction and force to ball
           _rigidbody.AddForce(direction * this.speed);
@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
 
      public void AddBulletForce(Vector2 force)
      {
-          _rigidbody.AddForce(force);
+          _rigidbody.AddForce(force*this.speed);
      }
 
      // Update is called once per frame

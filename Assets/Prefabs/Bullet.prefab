@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6459842537295437876}
   - component: {fileID: 6459842537295437879}
   - component: {fileID: 6459842537295437878}
-  - component: {fileID: 6459842537295437872}
   - component: {fileID: 6459842537295437873}
   - component: {fileID: 6459842537295437877}
   - component: {fileID: 6459842537295437882}
@@ -29,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6459842537295437875}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.531, y: -0.474, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.5874999, y: -0.963, z: -0.7826835}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 8432833046894688570, guid: 98175001f4585124d81fc1c5270ddb03, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,26 +100,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6459842537295437872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6459842537295437875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7edebb3333786348be44b5453726429, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  snapToCenter: 0
 --- !u!61 &6459842537295437873
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e22faa3a9906b4f8e6a5e8d6092e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
+  speed: 1000
   _rigidbody: {fileID: 6459842537295437878}
   start_x: 0
   start_y: 1

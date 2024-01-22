@@ -17,10 +17,11 @@ public class BouncySurface : MonoBehaviour
 
           if (bullet != null) //If collided object is not null (a ball)
           {
+            
                Vector2 normal = collision.GetContact(0).normal;
                //The normal vector of a surface is the vector perpendicular to it 
                //GetContact(0) is simply the first contact point 
-
+               
                bullet.AddBulletForce(-normal * this.BounceStrength);
           }
 
