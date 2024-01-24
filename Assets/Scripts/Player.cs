@@ -11,6 +11,7 @@ public class Player : Singleton<Player>
     public GameObject AimLinePrefab;
     private GameObject currentLine;
     private GameObject lastLine;
+    private GameObject firedShot;
      // Start is called before the first frame update 
 
      //Sounds 

@@ -27,9 +27,10 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         currentPhase = GamePhase.Prep;
-        currentEnemyCount = EnemyCounts[0];
+        currentEnemyCount = EnemyCounts[SceneManager.GetActiveScene().buildIndex];
         currentCash = 1000;
         staringCash = 1000;
+        Debug.Log(currentEnemyCount);
     }
 
     // Update is called once per frame
@@ -107,13 +108,22 @@ public class GameManager : Singleton<GameManager>
 
     static public void ENEMY_KILLED()
     {
+        Debug.Log(Instance.currentEnemyCount);
         Instance.currentCash += 500;
         Instance.currentEnemyCount--;
         if( Instance.currentEnemyCount == 0 )
         {
+            Instance.currentPhase++;
             Instance.canAdvance = true;
+            Debug.Log(Instance.currentPhase);
 
         }
+    }
+
+    static public void NEXT_SCENE()
+    {
+        Instance.nextLevel();
+
     }
 
 

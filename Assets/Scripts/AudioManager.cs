@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 
     static public AudioManager Instance { get; private set; }
     public AudioClip[] Music;
-    //public AudioClip Sound;
+    public AudioClip MenuSound;
     private AudioClip currentTrack;
     private AudioSource musicSource;
     private AudioSource soundSource;
@@ -100,6 +100,13 @@ public class AudioManager : MonoBehaviour
         soundSource.clip = sound;
         soundSource.volume = soundVolume;
         soundSource.PlayOneShot(sound);
+
+    }
+    public void playSound()
+    {
+        soundSource.clip = MenuSound;
+        soundSource.volume = soundVolume;
+        soundSource.PlayOneShot(MenuSound);
 
     }
 
