@@ -49,6 +49,7 @@ public class Bullet : MonoBehaviour
             }
             
         }else {
+            if(!isBlank)
                AudioManager.Instance.playSound(richochet_SFX);
           }
     }
