@@ -27,8 +27,9 @@ public class Spawner : MonoBehaviour
         {
             obj = Instantiate(objectToSpawn);
             obj.transform.position = gameObject.transform.position;
-            obj.GetComponent<DraggableObject>().isSpawner = true;
             spawnPosition = obj.transform.position;
+            obj.GetComponent<DraggableObject>().isSpawner = true;
+            
         }
         
     }

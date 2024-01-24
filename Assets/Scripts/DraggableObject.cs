@@ -31,7 +31,7 @@ public class DraggableObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(beingDragged);
+        
        
         if (beingDragged)
         {
