@@ -95,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapToCenter: 0
   isSpawner: 0
+  grab_SFX: {fileID: 8300000, guid: 22383f3a73db84344834d5acd48aca81, type: 3}
 --- !u!212 &8366087333493016942
 SpriteRenderer:
   m_ObjectHideFlags: 0

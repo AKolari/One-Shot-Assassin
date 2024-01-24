@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: e7edebb3333786348be44b5453726429
+guid: 486e6393280e1534b98bcfb777cd330d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - grab_SFX: {fileID: 8300000, guid: 22383f3a73db84344834d5acd48aca81, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

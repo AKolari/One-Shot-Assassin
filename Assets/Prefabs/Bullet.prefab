@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   _rigidbody: {fileID: 6459842537295437878}
+  richochet_SFX: {fileID: 8300000, guid: 89c7a4aba1eeae043b5cbe4e9e616c92, type: 3}
 --- !u!58 &6459842537295437882
 CircleCollider2D:
   m_ObjectHideFlags: 0

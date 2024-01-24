@@ -10,7 +10,9 @@ public class Spawner : MonoBehaviour
     private Vector3 spawnPosition;
     private bool takenObject=false;
     GameObject obj;
-    void Start()
+
+     
+     void Start()
     {
         obj = Instantiate(objectToSpawn);
         obj.transform.position = gameObject.transform.position;
