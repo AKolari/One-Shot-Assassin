@@ -8,6 +8,9 @@ public class Player : Singleton<Player>
     //Set bulletSpawnPoint in the
     private Transform bulletSpawnPoint;
     public GameObject BulletPrefab;
+    public GameObject AimLinePrefab;
+    private GameObject currentLine;
+    private GameObject lastLine;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,21 +23,41 @@ public class Player : Singleton<Player>
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.CURRENT_PHASE() == GamePhase.Aim)
+        {
+            Vector2 mousePos2D = Input.mousePosition;
 
-        Vector2 mousePos2D = Input.mousePosition;
+            Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+            mousePos3D.z = 0;
 
-        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
-        mousePos3D.z = 0;
+            Vector2 direction = new Vector2(mousePos3D.x - gameObject.transform.position.x, mousePos3D.y - gameObject.transform.position.y);
+            transform.up = -direction;
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                GameObject myBullet = Instantiate(BulletPrefab);
+                myBullet.transform.position = bulletSpawnPoint.position;
+                myBullet.transform.rotation = bulletSpawnPoint.rotation;
+                myBullet.GetComponent<Bullet>().AddBulletForce(direction.normalized);
+                GameManager.ADVANCE_PHASE();
+            }
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                if(lastLine != null)
+                {
+                    Destroy(lastLine.gameObject);
+                    
+                }
+                GameObject myBullet = Instantiate(BulletPrefab);
+                myBullet.transform.position = bulletSpawnPoint.position;
+                myBullet.transform.rotation = bulletSpawnPoint.rotation;
+                myBullet.GetComponent<Bullet>().AddBulletForce(direction.normalized);
+                currentLine = Instantiate(AimLinePrefab, myBullet.transform);
+                currentLine.GetComponent<AimLine>().blank = myBullet.GetComponent<Bullet>();
 
-        Vector2 direction = new Vector2(mousePos3D.x - gameObject.transform.position.x, mousePos3D.y - gameObject.transform.position.y);
-        transform.up = -direction;
-
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            GameObject myBullet = Instantiate(BulletPrefab);
-            myBullet.transform.position = bulletSpawnPoint.position;
-            myBullet.transform.rotation = bulletSpawnPoint.rotation;
-            myBullet.GetComponent<Bullet>().AddBulletForce(direction.normalized);
+            }
         }
+
+       
 
 
           
