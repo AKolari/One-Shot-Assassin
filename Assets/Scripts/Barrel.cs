@@ -6,6 +6,8 @@ public class Barrel : MonoBehaviour
 {
 
      public AudioClip explode_SFX;
+    public GameObject explosionPrefab;
+    private GameObject explosion;
      // Start is called before the first frame update
      void Start()
     {
@@ -22,8 +24,15 @@ public class Barrel : MonoBehaviour
     {
           if (GameManager.CURRENT_PHASE() == GamePhase.Fire) 
           {
-               AudioManager.Instance.playSound(explode_SFX);
-               Destroy(this.gameObject); 
+            AudioManager.Instance.playSound(explode_SFX);
+            explosion =Instantiate(explosionPrefab);
+            explosion.transform.position=gameObject.transform.position;
+            Destroy(gameObject);
+            
+               
           }
     }
+
+
+    
 }

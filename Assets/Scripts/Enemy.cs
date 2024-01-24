@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    public void OnTriggerExit2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (GameManager.CURRENT_PHASE() == GamePhase.Fire)
         {
@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
         }
         
     }
+
+   
 
 
 
