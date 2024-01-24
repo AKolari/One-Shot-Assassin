@@ -15,10 +15,11 @@ public class DraggableObject : MonoBehaviour
     private Quaternion lastValidRotation;
     public bool isSpawner=false;
     private bool aboveSpawner;
+    public AudioClip grab_SFX;
 
-    
-    // Start is called before the first frame update
-    void Awake()
+
+     // Start is called before the first frame update
+     void Awake()
     {
         beingDragged = false;
         myBody = GetComponent<Rigidbody2D>();
@@ -31,7 +32,7 @@ public class DraggableObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(beingDragged);
+        
        
         if (beingDragged)
         {
@@ -56,7 +57,8 @@ public class DraggableObject : MonoBehaviour
         
         if (GameManager.CURRENT_PHASE() == GamePhase.Prep)
         {
-            
+            //Play grabbing sounds 
+            AudioManager.Instance.playSound(grab_SFX);
             beingDragged = true;
             //gameObject.layer = 6;
             myCollider.isTrigger = true;

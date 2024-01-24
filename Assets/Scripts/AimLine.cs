@@ -7,11 +7,11 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class AimLine : MonoBehaviour
 {
-    private AimLine lastLine;
+    
     private LineRenderer lineRenderer;
     private bool drawing = true;
     public Bullet blank;
-    private bool _drawing = true;
+    
 
 
     void Start()

@@ -11,8 +11,11 @@ public class Player : Singleton<Player>
     public GameObject AimLinePrefab;
     private GameObject currentLine;
     private GameObject lastLine;
-    // Start is called before the first frame update
-    void Start()
+     // Start is called before the first frame update 
+
+     //Sounds 
+     public AudioClip fire_SFX;
+     void Start()
     {
         bulletSpawnPoint = gameObject.transform.Find("Barrel");
           
@@ -34,11 +37,20 @@ public class Player : Singleton<Player>
             transform.up = -direction;
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+
+
+                if (lastLine != null)
+                {
+                    Destroy(lastLine.gameObject);
+
+                }
+
                 GameObject myBullet = Instantiate(BulletPrefab);
                 myBullet.transform.position = bulletSpawnPoint.position;
                 myBullet.transform.rotation = bulletSpawnPoint.rotation;
                 myBullet.GetComponent<Bullet>().AddBulletForce(direction.normalized);
-                GameManager.ADVANCE_PHASE();
+                GameManager.ADVANCE_PHASE();  
+                AudioManager.Instance.playSound(fire_SFX);
             }
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
@@ -51,9 +63,21 @@ public class Player : Singleton<Player>
                 myBullet.transform.position = bulletSpawnPoint.position;
                 myBullet.transform.rotation = bulletSpawnPoint.rotation;
                 myBullet.GetComponent<Bullet>().AddBulletForce(direction.normalized);
+                myBullet.GetComponent <Bullet>().isBlank = true;
                 currentLine = Instantiate(AimLinePrefab, myBullet.transform);
                 currentLine.GetComponent<AimLine>().blank = myBullet.GetComponent<Bullet>();
+                lastLine = myBullet;
 
+
+            }
+
+            if(Input.GetKeyDown(KeyCode.F)) 
+            {
+                if (lastLine != null)
+                {
+                    Destroy(lastLine.gameObject);
+
+                }
             }
         }
 

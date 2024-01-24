@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 6459842537295437875, guid: 9dd3b9df50eebbc48a46310d8da395ce, type: 3}
   AimLinePrefab: {fileID: 6306680076136611679, guid: 8dc5de59395978c4e8b904ab824eafdf, type: 3}
+  fire_SFX: {fileID: 8300000, guid: bad99065a656f45488307400936fdb83, type: 3}
 --- !u!58 &-2360474931390792244
 CircleCollider2D:
   m_ObjectHideFlags: 0

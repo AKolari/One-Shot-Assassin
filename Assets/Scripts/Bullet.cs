@@ -7,8 +7,10 @@ public class Bullet : MonoBehaviour
 
      public float speed = 1500.0f;
      public Rigidbody2D _rigidbody;
-    
 
+     public bool isBlank = false;
+     public AudioClip richochet_SFX;
+    
 
 
      private void Awake()
@@ -34,9 +36,20 @@ public class Bullet : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+
         if(collision.gameObject.layer == 7)
         {
-            Destroy(this.gameObject);
-        }
+            if(isBlank)
+            {
+                _rigidbody.Sleep();
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+            
+        }else {
+               AudioManager.Instance.playSound(richochet_SFX);
+          }
     }
 }

@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapToCenter: 1
+  isSpawner: 0
+  grab_SFX: {fileID: 8300000, guid: 22383f3a73db84344834d5acd48aca81, type: 3}
 --- !u!61 &6322509949931457331
 BoxCollider2D:
   m_ObjectHideFlags: 0

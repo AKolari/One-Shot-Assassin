@@ -136,6 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapToCenter: 1
+  isSpawner: 0
+  grab_SFX: {fileID: 8300000, guid: 22383f3a73db84344834d5acd48aca81, type: 3}
 --- !u!114 &-6903952126251384911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,3 +150,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1916979d6e67e744aaa5880b14408c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explode_SFX: {fileID: 8300000, guid: 9902e52a3442b204cb2c3a3c4b42865e, type: 3}
