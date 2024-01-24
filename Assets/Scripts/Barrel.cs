@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Barrel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+     public AudioClip explode_SFX;
+     // Start is called before the first frame update
+     void Start()
     {
         
     }
@@ -18,7 +20,10 @@ public class Barrel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(GameManager.CURRENT_PHASE()==GamePhase.Fire)
-        Destroy(this.gameObject);
+          if (GameManager.CURRENT_PHASE() == GamePhase.Fire) 
+          {
+               AudioManager.Instance.playSound(explode_SFX);
+               Destroy(this.gameObject); 
+          }
     }
 }
