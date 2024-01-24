@@ -34,6 +34,12 @@ public class Player : Singleton<Player>
             transform.up = -direction;
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+
+                if (lastLine != null)
+                {
+                    Destroy(lastLine.gameObject);
+
+                }
                 GameObject myBullet = Instantiate(BulletPrefab);
                 myBullet.transform.position = bulletSpawnPoint.position;
                 myBullet.transform.rotation = bulletSpawnPoint.rotation;
@@ -51,9 +57,21 @@ public class Player : Singleton<Player>
                 myBullet.transform.position = bulletSpawnPoint.position;
                 myBullet.transform.rotation = bulletSpawnPoint.rotation;
                 myBullet.GetComponent<Bullet>().AddBulletForce(direction.normalized);
+                myBullet.GetComponent <Bullet>().isBlank = true;
                 currentLine = Instantiate(AimLinePrefab, myBullet.transform);
                 currentLine.GetComponent<AimLine>().blank = myBullet.GetComponent<Bullet>();
+                lastLine = myBullet;
 
+
+            }
+
+            if(Input.GetKeyDown(KeyCode.F)) 
+            {
+                if (lastLine != null)
+                {
+                    Destroy(lastLine.gameObject);
+
+                }
             }
         }
 
